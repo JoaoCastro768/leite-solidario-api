@@ -1,0 +1,51 @@
+@baseUrl = http://localhost:9000
+@doadoraId = 1
+@doacaoId = 1
+
+### Saúde
+GET {{baseUrl}}/actuator/health
+
+### Cadastrar doadora
+POST {{baseUrl}}/api/v1/doadoras
+Content-Type: application/json
+
+{"nome":"Ana Silva","email":"ana@example.com","telefone":"11999999999","cidade":"São Paulo","ativa":true}
+
+### Listar doadoras
+GET {{baseUrl}}/api/v1/doadoras
+
+### Consultar doadora
+GET {{baseUrl}}/api/v1/doadoras/{{doadoraId}}
+
+### Atualizar doadora
+PUT {{baseUrl}}/api/v1/doadoras/{{doadoraId}}
+Content-Type: application/json
+
+{"nome":"Ana Silva","email":"ana@example.com","telefone":"11999999999","cidade":"Santos","ativa":true}
+
+### Cadastrar doação
+POST {{baseUrl}}/api/v1/doacoes
+Content-Type: application/json
+
+{"doadoraId":{{doadoraId}},"volumeMl":250,"dataColeta":"2026-10-05","status":"COLETADA","observacoes":"Demonstração"}
+
+### Listar doações
+GET {{baseUrl}}/api/v1/doacoes
+
+### Filtrar doações
+GET {{baseUrl}}/api/v1/doacoes?doadoraId={{doadoraId}}
+
+### Consultar doação
+GET {{baseUrl}}/api/v1/doacoes/{{doacaoId}}
+
+### Atualizar doação
+PUT {{baseUrl}}/api/v1/doacoes/{{doacaoId}}
+Content-Type: application/json
+
+{"doadoraId":{{doadoraId}},"volumeMl":350,"dataColeta":"2026-10-05","status":"RECEBIDA","observacoes":"Volume atualizado"}
+
+### Excluir doação
+DELETE {{baseUrl}}/api/v1/doacoes/{{doacaoId}}
+
+### Excluir doadora
+DELETE {{baseUrl}}/api/v1/doadoras/{{doadoraId}}

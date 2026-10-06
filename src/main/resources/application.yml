@@ -1,0 +1,33 @@
+server:
+  port: ${SERVER_PORT:9000}
+spring:
+  application:
+    name: leite-solidario-api
+  datasource:
+    url: ${DB_URL:jdbc:sqlserver://localhost:1433;databaseName=leite_solidario;encrypt=true;trustServerCertificate=true}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      accept-float-as-int: false
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never

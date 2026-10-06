@@ -1,0 +1,4 @@
+Microservices and Web Engineering — Check Point 2 — 2º semestre/2026
+Repositório: https://github.com/JoaoCastro768/leite-solidario-api
+Integrante: João Castro
+RM: 554628
